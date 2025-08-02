@@ -78,7 +78,7 @@ nav ul li a:focus {
 .hero {
   background: url('images/object.jpg') center center/cover no-repeat;
   height: 100vh;
-  color: white;
+  color: rgb(31, 29, 29);;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -545,3 +545,4 @@ footer .logo svg {
     gap: 0.75rem;
   }
 }
+
