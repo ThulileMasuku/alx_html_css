@@ -1,134 +1,851 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SmileSchool - Get Schooled</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SmileSchool - Get Schooled</title>
+<style>
+  /* Global styles and resets */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background: #fff;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  /* Utility - Flex Center */
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Container max width & padding */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Header / Navbar */
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255 255 255 / 0.1);
+    z-index: 20;
+    padding: 1rem 0;
+    backdrop-filter: saturate(180%) blur(8px);
+  }
+
+  nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Logo */
+  .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 1.4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+  }
+
+  /* Nav menu */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #bf6aff;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 6rem;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1470&q=80");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35) grayscale(0.5) contrast(1.2);
+    z-index: -1;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .hero-submenu {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-submenu span {
+    user-select: none;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.625rem 1.75rem;
+    border-radius: 9999px;
+    background: #bf6aff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-primary:hover {
+    background: #aa4eee;
+  }
+
+  .hero-learn {
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  .hero-learn strong {
+    color: #bf6aff;
+  }
+
+  /* Profile Section (People who teach) */
+  .profiles {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding-bottom: 3rem;
+  }
+
+  .profile-card {
+    text-align: center;
+    color: white;
+    max-width: 160px;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 0.8rem;
+    border: 3px solid rgba(255 255 255 / 0.3);
+  }
+
+  .profile-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .profile-title {
+    font-size: 0.75rem;
+    color: #ccc;
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  /* Testimonial Section */
+  .testimonial {
+    background: #bf6aff;
+    color: white;
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .testimonial-img {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .testimonial-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .testimonial-text strong {
+    display: block;
+    margin-top: 0.75rem;
+    font-weight: 800;
+  }
+
+  .testimonial-text em {
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.85;
+    font-size: 0.875rem;
+  }
+
+  /* Tutorials Section */
+  .tutorials-section {
+    padding: 2rem 1rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tutorials-section h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    color: #333;
+  }
+
+  .tutorials-section h2 strong {
+    color: #bf6aff;
+  }
+
+  .tutorial-cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tutorial-card {
+    box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
+    border-radius: 6px;
+    max-width: 260px;
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .tutorial-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .tutorial-thumb {
+    position: relative;
+  }
+
+  .tutorial-thumb img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Play button on top of image */
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgba(191, 106, 255, 0.8);
+    border-radius: 9999px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+  }
+
+  .play-button:hover {
+    background: #aa4eee;
+  }
+
+  .play-button::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 12px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    margin-left: 3px;
+  }
+
+  .tutorial-info {
+    padding: 1rem;
+  }
+
+  .tutorial-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #222;
+  }
+
+  .tutorial-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    min-height: 40px;
+  }
+
+  .tutorial-author {
+    font-size: 0.75rem;
+    color: #bf6aff;
+    font-weight: 700;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .tutorial-author svg {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .tutorial-rating-time {
+    font-size: 0.75rem;
+    color: #bf6aff;
+    margin-top: 0.35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Star rating */
+  .stars {
+    color: #bf6aff;
+  }
+  .stars .empty {
+    color: #ccc;
+  }
+
+  /* Membership Section */
+  .membership {
+    background: #0d111f;
+    padding: 4rem 1rem 3rem;
+    text-align: center;
+    color: white;
+  }
+
+  .membership h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .membership h2 strong {
+    color: #bf6aff;
+  }
+
+  .membership-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .membership-item {
+    flex: 1 1 180px;
+    max-width: 220px;
+    color: #ccc;
+  }
+
+  .membership-icon {
+    font-size: 3rem;
+    line-height: 1;
+    color: #bf6aff;
+    margin-bottom: 1rem;
+  }
+
+  .membership-title {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .membership-desc {
+    font-size: 0.875rem;
+    color: #aaa;
+  }
+
+  .btn-secondary {
+    background: #bf6aff;
+    padding: 0.625rem 1.75rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #aa4eee;
+  }
+
+  /* FAQ Section */
+  .faq {
+    max-width: 1200px;
+    margin: 4rem auto 6rem;
+    padding: 0 1rem;
+  }
+
+  .faq h2 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    text-align: left;
+  }
+
+  .faq-item h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-item p {
+    color: #555;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  /* Footer */
+  footer {
+    background: #0d111f;
+    color: #666;
+    padding: 2rem 1rem 1rem;
+    text-align: center;
+  }
+
+  footer .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  footer .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  footer .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  footer .social-icons a {
+    color: #666;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+  }
+
+  footer .social-icons a:hover {
+    color: #bf6aff;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .profiles {
+      justify-content: space-around;
+      max-width: 900px;
+      margin: 3.5rem auto 3rem;
+      gap: 2rem;
+    }
+
+    .tutorial-cards {
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .membership-items {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    /* Header */
+    nav ul {
+      gap: 1rem;
+    }
+
+    /* Hero */
+    .hero-content h1 {
+      font-size: 2.75rem;
+    }
+
+    .hero-submenu {
+      gap: 1rem;
+      font-size: 0.65rem;
+    }
+
+    /* Profiles stack */
+    .profiles {
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .profile-card {
+      max-width: 160px;
+      margin: 0 auto;
+    }
+
+    /* Tutorials stack */
+    .tutorial-cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Membership list stack */
+    .membership-items {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* FAQ grid single column */
+    .faq-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    /* Footer */
+    footer .footer-inner {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <img src="images/logo.png" alt="SmileSchool Logo" class="logo">
-      <nav class="header-right">
-        <a href="#">COURSES</a>
-        <a href="#">PRICING</a>
-        <a href="#">LOGIN</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <nav class="container" aria-label="Primary navigation">
+    <a href="#" class="logo" aria-label="SmileSchool Logo">
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle cx="14" cy="14" r="7" fill="#BF6AFF"/>
+        <circle cx="34" cy="14" r="7" fill="#BF6AFF"/>
+        <path fill="white" d="M14 27c5 5 14 5 19 0" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      SmileSchool
+    </a>
+    <ul role="list">
+      <li><a href="#">COURSES</a></li>
+      <li><a href="#">PRICING</a></li>
+      <li><a href="#">LOGIN</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
+  <section class="hero" aria-label="Hero Introduction">
+    <div class="hero-content">
       <h1>Get schooled</h1>
-      <p>SMILES &nbsp; GRIN &nbsp; LAUGH</p>
-      <button class="cta">REGISTER FOR FREE</button>
+      <nav class="hero-submenu" aria-label="Hero submenu">
+        <span>SMILES</span>
+        <span>GRIN</span>
+        <span>LAUGH</span>
+      </nav>
+      <button class="btn-primary" type="button">REGISTER FOR FREE</button>
+
+      <p class="hero-learn"><strong>Learn</strong> from the pros</p>
+    </div>
+
+    <!-- Profiles underneath hero content -->
+    <div class="profiles" aria-label="Instructor profiles">
+      <article class="profile-card" tabindex="0">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Phillip Massey" class="profile-img" />
+        <h3 class="profile-name">Phillip Massey</h3>
+        <p class="profile-title">« Smile of the year »<br />2018 - 2019</p>
+      </article>
+      <article class="profile-card" tabindex="0">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Nannie Lawrence" class="profile-img" />
+        <h3 class="profile-name">Nannie Lawrence</h3>
+        <p class="profile-title">« Best little smile »<br />2017</p>
+      </article>
+      <article class="profile-card" tabindex="0">
+        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Bruce Walters" class="profile-img" />
+        <h3 class="profile-name">Bruce Walters</h3>
+        <p class="profile-title">« Best award Smile »<br />live performance 2019</p>
+      </article>
+      <article class="profile-card" tabindex="0">
+        <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Henry Hughes" class="profile-img" />
+        <h3 class="profile-name">Henry Hughes</h3>
+        <p class="profile-title">« 24h smiles » winner<br />2016 - 2018</p>
+      </article>
     </div>
   </section>
 
-  <!-- Instructors Section -->
-  <section class="instructors">
-    <div class="container">
-      <h2>Learn from the pros</h2>
-      <div class="profile-grid">
-        <div class="profile">
-          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Phillip Massey">
-          <h4>Phillip Massey</h4>
-          <p>"Smile of the Year" 2018–2019</p>
-        </div>
-        <div class="profile">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Nannie Lawrence">
-          <h4>Nannie Lawrence</h4>
-          <p>"Best Little Smile" 2017</p>
-        </div>
-        <div class="profile">
-          <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Bruce Walters">
-          <h4>Bruce Walters</h4>
-          <p>"Best Award Smile" – Live Performance 2019</p>
-        </div>
-        <div class="profile">
-          <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Henry Hughes">
-          <h4>Henry Hughes</h4>
-          <p>"24h Smiles" Winner 2016–2018</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonial -->
-  <section class="testimonial">
-    <div class="container">
-      <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Testimonial Person">
-      <div class="testimonial-text">
-        <blockquote>
-          “These tutorials are concise and go straight to the point. I can't think of a better place to learn smiling. And it's fun!”
-        </blockquote>
-        <p><strong>Henry Hughes</strong><br><em>Weather Presenter</em></p>
-      </div>
-    </div>
+  <!-- Testimonial Section -->
+  <section class="testimonial" aria-label="User testimonial">
+    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Person Name" class="testimonial-img" />
+    <blockquote class="testimonial-text">
+      « Those tutorials are concise and go straight to the point. I can't think of a better place to learn smiling. And it's so fun! »
+      <strong>Person Name</strong>
+      <em>weather presenter</em>
+    </blockquote>
   </section>
 
   <!-- Tutorials Section -->
-  <section class="tutorials">
-    <div class="container">
-      <h2>Most <span class="purple">Popular</span> Tutorials</h2>
-      <div class="tutorial-grid">
-        <div class="tutorial-card">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Tutorial Image">
-          <img src="images/play.png" alt="Play Icon" class="play-icon">
-          <h3>Diagonal Smile</h3>
-          <p class="description">Master the art of the diagonal smile with this step-by-step tutorial.</p>
-          <div class="author">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Phillip Massey">
-            <span>Phillip Massey</span>
-          </div>
-          <img src="images/rating.png" alt="Rating" class="rating">
+  <section class="tutorials-section" aria-label="Most popular tutorials">
+    <h2>Most <strong>popular</strong> tutorials</h2>
+
+    <div class="tutorial-cards">
+
+      <article class="tutorial-card" tabindex="0">
+        <div class="tutorial-thumb">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Diagonal Smile" loading="lazy"/>
+          <div class="play-button" role="button" aria-label="Play Diagonal Smile tutorial"></div>
         </div>
-        <!-- Repeat tutorial-card block for other tutorials -->
-      </div>
+        <div class="tutorial-info">
+          <h3 class="tutorial-title">Diagonal Smile</h3>
+          <p class="tutorial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+          <div class="tutorial-author" aria-label="Author Phillip Massey">
+            <svg aria-hidden="true" focusable="false">
+              <circle cx="10" cy="10" r="10" fill="#bf6aff"/>
+            </svg>
+            Phillip Massey
+          </div>
+          <div class="tutorial-rating-time">
+            <div class="stars" aria-label="4.5 star rating">★★★★☆</div>
+            <time datetime="PT8M">8 min</time>
+          </div>
+        </div>
+      </article>
+
+      <article class="tutorial-card" tabindex="0">
+        <div class="tutorial-thumb">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80" alt="Sad Smile" loading="lazy"/>
+          <div class="play-button" role="button" aria-label="Play Sad Smile tutorial"></div>
+        </div>
+        <div class="tutorial-info">
+          <h3 class="tutorial-title">Sad Smile</h3>
+          <p class="tutorial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+          <div class="tutorial-author" aria-label="Author Phillip Massey">
+            <svg aria-hidden="true" focusable="false">
+              <circle cx="10" cy="10" r="10" fill="#bf6aff"/>
+            </svg>
+            Phillip Massey
+          </div>
+          <div class="tutorial-rating-time">
+            <div class="stars" aria-label="4.5 star rating">★★★★☆</div>
+            <time datetime="PT8M">8 min</time>
+          </div>
+        </div>
+      </article>
+
+      <article class="tutorial-card" tabindex="0">
+        <div class="tutorial-thumb">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Natural Smile" loading="lazy"/>
+          <div class="play-button" role="button" aria-label="Play Natural Smile tutorial"></div>
+        </div>
+        <div class="tutorial-info">
+          <h3 class="tutorial-title">Natural Smile</h3>
+          <p class="tutorial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+          <div class="tutorial-author" aria-label="Author Phillip Massey">
+            <svg aria-hidden="true" focusable="false">
+              <circle cx="10" cy="10" r="10" fill="#bf6aff"/>
+            </svg>
+            Phillip Massey
+          </div>
+          <div class="tutorial-rating-time">
+            <div class="stars" aria-label="3 star rating">★★★☆☆</div>
+            <time datetime="PT8M">8 min</time>
+          </div>
+        </div>
+      </article>
+
+      <article class="tutorial-card" tabindex="0">
+        <div class="tutorial-thumb">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Happy Smile" loading="lazy"/>
+          <div class="play-button" role="button" aria-label="Play Happy Smile tutorial"></div>
+        </div>
+        <div class="tutorial-info">
+          <h3 class="tutorial-title">Happy Smile</h3>
+          <p class="tutorial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+          <div class="tutorial-author" aria-label="Author Phillip Massey">
+            <svg aria-hidden="true" focusable="false">
+              <circle cx="10" cy="10" r="10" fill="#bf6aff"/>
+            </svg>
+            Phillip Massey
+          </div>
+          <div class="tutorial-rating-time">
+            <div class="stars" aria-label="4.5 star rating">★★★★☆</div>
+            <time datetime="PT8M">8 min</time>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
   <!-- Membership Section -->
-  <section class="membership">
-    <div class="container">
-      <h2><span class="purple">Free</span> Membership</h2>
-      <div class="icons">
-        <div class="icon-block">
-          <img src="images/smile.png" alt="Icon 1">
-          <h4>Smile Basics</h4>
-          <p>Learn the foundations of smiling confidently.</p>
-        </div>
-        <div class="icon-block">
-          <img src="images/smile.png" alt="Icon 2">
-          <h4>Grin Techniques</h4>
-          <p>Grinning naturally in different situations.</p>
-        </div>
-        <div class="icon-block">
-          <img src="images/smile.png" alt="Icon 3">
-          <h4>Laughing Smart</h4>
-          <p>Control and use your laugh to your advantage.</p>
-        </div>
-        <div class="icon-block">
-          <img src="images/smile.png" alt="Icon 4">
-          <h4>Advanced Smiling</h4>
-          <p>Smile like a pro in photos and on stage.</p>
-        </div>
-      </div>
-      <button class="cta">REGISTER FOR FREE</button>
+  <section class="membership" aria-label="Free Membership">
+    <h2><strong>Free</strong> membership</h2>
+    <div class="membership-items" role="list">
+      <article class="membership-item" role="listitem" tabindex="0" aria-label="Feature 1">
+        <div class="membership-icon" aria-hidden="true">😊</div>
+        <h3 class="membership-title">Lorem ipsum</h3>
+        <p class="membership-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </article>
+      <article class="membership-item" role="listitem" tabindex="0" aria-label="Feature 2">
+        <div class="membership-icon" aria-hidden="true">😊</div>
+        <h3 class="membership-title">Lorem ipsum</h3>
+        <p class="membership-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </article>
+      <article class="membership-item" role="listitem" tabindex="0" aria-label="Feature 3">
+        <div class="membership-icon" aria-hidden="true">😊</div>
+        <h3 class="membership-title">Lorem ipsum</h3>
+        <p class="membership-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </article>
+      <article class="membership-item" role="listitem" tabindex="0" aria-label="Feature 4">
+        <div class="membership-icon" aria-hidden="true">😊</div>
+        <h3 class="membership-title">Lorem ipsum</h3>
+        <p class="membership-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </article>
+    </div>
+
+    <button class="btn-secondary" type="button">REGISTER FOR FREE</button>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" aria-label="Frequently Asked Questions">
+    <h2>F.A.Q.</h2>
+    <div class="faq-grid">
+      <article class="faq-item" tabindex="0">
+        <h3>How does this work?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
+      <article class="faq-item" tabindex="0">
+        <h3>How does this work?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
+      <article class="faq-item" tabindex="0">
+        <h3>How does this work?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
+      <article class="faq-item" tabindex="0">
+        <h3>How does this work?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <img src="images/logo.png" alt="SmileSchool Logo" class="logo">
-      <p>&copy; 2023 SmileSchool</p>
+</main>
+
+<!-- Footer -->
+<footer role="contentinfo">
+  <div class="footer-inner container">
+    <a href="#" class="logo" aria-label="SmileSchool Logo">
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle cx="14" cy="14" r="7" fill="#BF6AFF"/>
+        <circle cx="34" cy="14" r="7" fill="#BF6AFF"/>
+        <path fill="white" d="M14 27c5 5 14 5 19 0" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      SmileSchool
+    </a>
+    <div class="social-icons" role="list">
+      <a href="#" aria-label="Facebook" role="listitem" tabindex="0" rel="noopener" target="_blank" style="font-size:1.5rem;">&#x25B6;</a>
+      <a href="#" aria-label="Twitter" role="listitem" tabindex="0" rel="noopener" target="_blank" style="font-size:1.5rem;">&#x25B6;</a>
+      <a href="#" aria-label="Instagram" role="listitem" tabindex="0" rel="noopener" target="_blank" style="font-size:1.5rem;">&#x25B6;</a>
     </div>
-  </footer>
+  </div>
+  <small>&copy; SmileSchool 2023</small>
+</footer>
 
 </body>
 </html>
