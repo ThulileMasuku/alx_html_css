@@ -1,87 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmileSchool</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f0f0f0;
+  text-align: center;
+  color: #333;
+}
 
-  <!-- Header / Logo -->
-  <header>
-    <img src="images/logo.png" alt="SmileSchool Logo" class="logo" />
-  </header>
+a {
+  text-decoration: none;
+}
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Get schooled</h1>
-    <p>Smiles. Grin. Laugh.</p>
-    <button class="cta">REGISTER FOR FREE</button>
-  </section>
+.purple {
+  color: #c271ff;
+}
 
-  <!-- Instructor Section -->
-  <section class="instructors">
-    <h2>Learn from the pros</h2>
-    <div class="profile-grid">
-      <div><img src="images/person1.jpg" alt="Instructor 1"><p>Phillip Massey</p></div>
-      <div><img src="images/person2.jpg" alt="Instructor 2"><p>Bruce Walters</p></div>
-      <div><img src="images/person3.jpg" alt="Instructor 3"><p>Nannie Lawrence</p></div>
-      <div><img src="images/person4.jpg" alt="Instructor 4"><p>Henry Hughes</p></div>
-    </div>
-  </section>
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
 
-  <!-- Testimonial -->
-  <section class="testimonial">
-    <img src="images/person5.jpg" alt="Testimonial">
-    <blockquote>
-      “These tutorials are concise and fun! Best place to learn smiling.”
-    </blockquote>
-    <p>- Weather Presenter</p>
-  </section>
+.header .logo {
+  width: 140px;
+}
 
-  <!-- Tutorials -->
-  <section class="tutorials">
-    <h2>Popular Tutorials</h2>
-    <div class="tutorial-grid">
-      <div class="tutorial-card">
-        <img src="images/person6.jpg" alt="Diagonal Smile">
-        <img src="images/play.png" class="play-icon" />
-        <p>Diagonal Smile</p>
-        <img src="images/rating.png" alt="Rating" class="rating">
-      </div>
-      <div class="tutorial-card">
-        <img src="images/person7.jpg" alt="Sad Smile">
-        <img src="images/play.png" class="play-icon" />
-        <p>Sad Smile</p>
-        <img src="images/rating.png" alt="Rating" class="rating">
-      </div>
-      <div class="tutorial-card">
-        <img src="images/person8.jpg" alt="Natural Smile">
-        <img src="images/play.png" class="play-icon" />
-        <p>Natural Smile</p>
-        <img src="images/rating.png" alt="Rating" class="rating">
-      </div>
-      <div class="tutorial-card">
-        <img src="images/person9.jpg" alt="Happy Smile">
-        <img src="images/play.png" class="play-icon" />
-        <p>Happy Smile</p>
-        <img src="images/rating.png" alt="Rating" class="rating">
-      </div>
-    </div>
-  </section>
+.header-right a {
+  color: white;
+  margin-left: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
 
-  <!-- Membership Section -->
-  <section class="membership">
-    <h2>Free Membership</h2>
-    <div class="icons">
-      <img src="images/smile.png" alt="Smiley">
-      <img src="images/smile.png" alt="Smiley">
-      <img src="images/smile.png" alt="Smiley">
-      <img src="images/smile.png" alt="Smiley">
-    </div>
-    <button class="cta">REGISTER FOR FREE</button>
-  </section>
+/* Hero Section */
+.hero {
+  background: url('images/object.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding-top: 150px;
+  text-align: center;
+}
 
-</body>
-</html>
+.hero h1 {
+  font-size: 72px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+/* CTA Button */
+.cta {
+  background-color: #c271ff;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Instructors Section */
+.instructors {
+  background-color: #0a0a23;
+  color: white;
+  padding: 60px 20px;
+}
+
+.instructors h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.profile-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.profile {
+  text-align: center;
+  max-width: 200px;
+}
+
+.profile img {
+  width: 120px;
+  border-radius: 50%;
+}
+
+.profile h4 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+  font-weight: bold;
