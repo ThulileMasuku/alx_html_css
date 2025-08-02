@@ -1,64 +1,164 @@
+/* Global Styles */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: #f0f0f0;
+  text-align: center;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+.purple {
+  color: #c271ff;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.header .logo {
+  width: 140px;
+}
+
+.header-right a {
+  color: white;
+  margin-left: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Hero Section */
+.hero {
+  background: url('images/object.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding-top: 150px;
   text-align: center;
 }
 
-.logo {
-  width: 150px;
-  margin: 20px;
+.hero h1 {
+  font-size: 72px;
+  font-weight: 900;
+  margin-bottom: 10px;
 }
 
-.hero {
-  background: url('images/object.jpg') center/cover no-repeat;
-  padding: 100px 20px;
-  color: white;
+.hero p {
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
+/* CTA Button */
 .cta {
   background-color: #c271ff;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 30px;
   border: none;
   border-radius: 25px;
-  margin-top: 20px;
   font-weight: bold;
+  font-size: 14px;
   cursor: pointer;
 }
 
+/* Instructors Section */
 .instructors {
   background-color: #0a0a23;
   color: white;
-  padding: 50px 20px;
+  padding: 60px 20px;
+}
+
+.instructors h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 
 .profile-grid {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
-.profile-grid img {
-  width: 100px;
+.profile {
+  text-align: center;
+  max-width: 200px;
+}
+
+.profile img {
+  width: 120px;
   border-radius: 50%;
 }
 
+.profile h4 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile p {
+  font-size: 13px;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Testimonial Section */
 .testimonial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   background-color: #c271ff;
+  padding: 60px 20px;
+  flex-wrap: wrap;
   color: white;
-  padding: 50px 20px;
 }
 
 .testimonial img {
-  width: 100px;
   border-radius: 50%;
+  width: 120px;
+  height: 120px;
 }
 
+.testimonial-text {
+  max-width: 500px;
+  text-align: left;
+}
+
+.testimonial-text blockquote {
+  font-size: 18px;
+  font-style: italic;
+  margin: 0 0 10px;
+}
+
+.testimonial-text p {
+  font-size: 14px;
+}
+
+/* Tutorials Section */
 .tutorials {
-  padding: 50px 20px;
+  padding: 60px 20px;
   background: white;
+}
+
+.tutorials h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 
 .tutorial-grid {
@@ -69,8 +169,13 @@ body {
 }
 
 .tutorial-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  width: 240px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
-  width: 200px;
 }
 
 .tutorial-card img:first-child {
@@ -85,18 +190,77 @@ body {
   left: 45%;
 }
 
-.rating {
-  width: 80px;
-  margin-top: 10px;
+.tutorial-card h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
 }
 
+.description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.author img {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.rating {
+  width: 80px;
+}
+
+/* Membership Section */
 .membership {
   background-color: #0a0a23;
   color: white;
-  padding: 50px 20px;
+  padding: 60px 20px;
 }
 
-.icons img {
+.membership h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.icon-block {
+  text-align: center;
+  max-width: 200px;
+}
+
+.icon-block img {
   width: 40px;
-  margin: 10px;
+  margin-bottom: 10px;
+}
+
+.icon-block h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.icon-block p {
+  font-size: 13px;
+  color: #ccc;
 }
