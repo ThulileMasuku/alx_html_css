@@ -1,208 +1,102 @@
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Helvetica Neue', sans-serif;
-}
-
 body {
-  background-color: #ffffff;
-  color: #333;
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* Header / Hero Section */
-.hero {
-  background: url('your-image.jpg') center/cover no-repeat;
-  color: white;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
   text-align: center;
-  padding: 10rem 2rem;
-  position: relative;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: bold;
+.logo {
+  width: 150px;
+  margin: 20px;
 }
 
-.hero .tags {
-  margin: 1rem 0;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-}
-
-.hero .cta-button {
-  background: #c271ff;
+.hero {
+  background: url('images/object.jpg') center/cover no-repeat;
+  padding: 100px 20px;
   color: white;
-  padding: 0.8rem 2rem;
-  border-radius: 2rem;
+}
+
+.cta {
+  background-color: #c271ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 20px;
   font-weight: bold;
-  transition: background 0.3s;
+  cursor: pointer;
 }
 
-.hero .cta-button:hover {
-  background: #a952d9;
-}
-
-/* Learn from the pros */
-.pros {
+.instructors {
   background-color: #0a0a23;
   color: white;
-  padding: 4rem 2rem;
-  text-align: center;
+  padding: 50px 20px;
 }
 
-.pros h2 {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-}
-
-.pros .profiles {
+.profile-grid {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 2rem;
 }
 
-.pros .profile {
-  text-align: center;
-  width: 200px;
-}
-
-.pros .profile img {
+.profile-grid img {
+  width: 100px;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
 }
 
-/* Testimonial */
 .testimonial {
-  background: #c271ff;
+  background-color: #c271ff;
   color: white;
-  padding: 3rem 2rem;
-  text-align: center;
+  padding: 50px 20px;
 }
 
-.testimonial .avatar {
+.testimonial img {
+  width: 100px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  margin: auto;
 }
 
-/* Tutorials */
 .tutorials {
-  padding: 4rem 2rem;
-  text-align: center;
+  padding: 50px 20px;
+  background: white;
 }
 
-.tutorials h2 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-
-.tutorials .cards {
+.tutorial-grid {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 2rem;
 }
 
 .tutorial-card {
-  width: 220px;
-  text-align: left;
+  position: relative;
+  width: 200px;
 }
 
-.tutorial-card img {
+.tutorial-card img:first-child {
+  width: 100%;
   border-radius: 10px;
 }
 
-.tutorial-card h3 {
-  margin-top: 0.5rem;
-  font-size: 1rem;
+.play-icon {
+  width: 40px;
+  position: absolute;
+  top: 35%;
+  left: 45%;
 }
 
-/* Membership */
+.rating {
+  width: 80px;
+  margin-top: 10px;
+}
+
 .membership {
   background-color: #0a0a23;
   color: white;
-  text-align: center;
-  padding: 4rem 2rem;
+  padding: 50px 20px;
 }
 
-.membership h2 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+.icons img {
+  width: 40px;
+  margin: 10px;
 }
-
-.membership .benefits {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.membership .benefit {
-  max-width: 200px;
-}
-
-.membership .cta-button {
-  margin-top: 2rem;
-  background: #c271ff;
-  color: white;
-  padding: 0.8rem 2rem;
-  border-radius: 2rem;
-}
-
-/* FAQ */
-.faq {
-  padding: 4rem 2rem;
-  background: #fff;
-  color: #333;
-}
-
-.faq h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-
-.faq .faq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-/* Footer */
-footer {
-  background: #0a0a23;
-  color: white;
-  padding: 2rem;
-  text-align: center;
-}
-
-footer .socials {
-  margin-top: 1rem;
-}
-
-footer .socials a {
-  margin: 0 0.5rem;
-}
-
