@@ -1,3 +1,11 @@
+/* General layout fix */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
 /* Global Styles */
 body {
   margin: 0;
@@ -17,13 +25,19 @@ a {
 
 /* Header */
 .header {
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  z-index: 10;
+}
+
+.header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  position: absolute;
-  width: 100%;
-  z-index: 10;
 }
 
 .header .logo {
@@ -43,12 +57,11 @@ a {
   background: url('images/object.jpg') center/cover no-repeat;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  padding-top: 150px;
   text-align: center;
+  padding-top: 120px;
 }
 
 .hero h1 {
@@ -119,14 +132,17 @@ a {
 
 /* Testimonial Section */
 .testimonial {
+  background-color: #c271ff;
+  color: white;
+  padding: 60px 20px;
+}
+
+.testimonial .container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  background-color: #c271ff;
-  padding: 60px 20px;
   flex-wrap: wrap;
-  color: white;
 }
 
 .testimonial img {
@@ -214,13 +230,6 @@ a {
   border-radius: 50%;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
-
 .rating {
   width: 80px;
 }
@@ -263,4 +272,19 @@ a {
 .icon-block p {
   font-size: 13px;
   color: #ccc;
+}
+
+/* Footer */
+.footer {
+  background: #0a0a23;
+  color: white;
+  padding: 20px 0;
+  font-size: 13px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
