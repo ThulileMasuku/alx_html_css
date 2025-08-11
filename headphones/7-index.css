@@ -1,0 +1,24 @@
+<section class="what-we-do">
+  ...
+  <div class="services">
+    <div class="service-item">
+      <span class="holberton_school-icon-ic_sound icon"></span>
+      <h3>High Quality Sound</h3>
+      <p>Experience crystal-clear audio with rich tones and deep bass.</p>
+    </div>
+    ...
+  </div>
+</section>
+
+<section class="our-results">
+  ...
+  <div class="results-grid">
+    <div class="result-item">
+      <span class="circle">
+        <strong>250%</strong>
+        <span class="label">Sound Quality Improvement</span>
+      </span>
+    </div>
+    ...
+  </div>
+</section>

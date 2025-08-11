@@ -1,0 +1,53 @@
+/* Our results section */
+.our-results {
+  padding: 60px 20px;
+  background-color: #ff6565;
+  color: #fff;
+  text-align: center;
+}
+
+.our-results h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.our-results .intro-text {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.circle strong {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.circle .label {
+  font-size: 0.85rem;
+  margin-top: 5px;
+}

@@ -1,0 +1,45 @@
+/* What we do section */
+.what-we-do {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.what-we-do h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.what-we-do .intro-text {
+  font-size: 1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.service-item {
+  padding: 20px;
+}
+
+.service-item .icon {
+  font-size: 48px;
+  color: #ff6565;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.service-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
