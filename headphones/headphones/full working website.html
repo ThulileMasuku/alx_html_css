@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Headphones Audio Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&family=ADLaM+Display:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.6;
+            color: #071629;
+            background-color: #ffffff;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Layout components */
+        .hero-section {
+            width: 100%;
+            background-image: url('../assets/images/img_object.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            position: relative;
+            background-color: #d7d7d7;
+        }
+        
+        .hero-content {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 26px 0;
+            margin-bottom: 86px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+        
+        .nav-menu {
+            display: none;
+        }
+        
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 20px;
+        }
+        
+        .hero-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 32px 16px;
+        }
+        
+        .hero-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        
+        .hero-subtitle {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+        
+        .cta-button {
+            background-color: #ff6565;
+            color: #ffffff;
+            border: none;
+            border-radius: 22px;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            margin-bottom: 32px;
+        }
+        
+        .cta-button:hover {
+            background-color: #e55555;
+            transform: translateY(-2px);
+        }
+        
+        .hero-description {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #ffffff;
+            max-width: 600px;
+        }
+        
+        /* What we do section */
+        .what-we-do-section {
+            width: 100%;
+            padding: 60px 16px;
+            background-color: #ffffff;
+        }
+        
+        .content-container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'ADLaM Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.3;
+            text-align: center;
+            color: #071629;
+            margin-bottom: 24px;
+        }
+        
+        .section-description {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.6;
+            text-align: center;
+            color: #071629;
+            margin-bottom: 48px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 16px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-title {
+            font-family: 'ADLaM Display', serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: #071629;
+            margin-bottom: 8px;
+        }
+        
+        .feature-description {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #071629;
+        }
+        
+        /* Results section */
+        .results-section {
+            width: 100%;
+            background-image: url('../assets/images/img_object_black_900.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #d7d7d7;
+            padding: 60px 16px;
+        }
+        
+        .results-content {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .results-title {
+            font-family: 'ADLaM Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+        
+        .results-description {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #ffffff;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .stat-item {
+            background-image: url('../assets/images/img_polygon_copy.svg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 48px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 150px;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: #ffffff;
+        }
+        
+        /* Contact section */
+        .contact-section {
+            width: 100%;
+            padding: 60px 16px;
+            background-color: #ffffff;
+        }
+        
+        .contact-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .contact-title {
+            font-family: 'ADLaM Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.3;
+            text-align: center;
+            color: #071629;
+            margin-bottom: 32px;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-label {
+            font-family: 'ADLaM Display', serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: #071629;
+        }
+        
+        .form-input {
+            border: none;
+            border-bottom: 1px solid rgba(7, 22, 41, 0.17);
+            padding: 10px 0;
+            font-family: 'ADLaM Display', serif;
+            font-size: 14px;
+            background: transparent;
+            color: #071629;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: #ff6565;
+        }
+        
+        .form-textarea {
+            border: 1px solid rgba(7, 22, 41, 0.17);
+            padding: 10px 12px;
+            font-family: 'ADLaM Display', serif;
+            font-size: 14px;
+            background: transparent;
+            color: #071629;
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .form-textarea:focus {
+            outline: none;
+            border-color: #ff6565;
+        }
+        
+        .submit-button {
+            background-color: #ff6565;
+            color: #ffffff;
+            border: none;
+            border-radius: 22px;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            align-self: center;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background-color: #e55555;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            width: 100%;
+            background-color: #071629;
+            padding: 36px 16px;
+        }
+        
+        .footer-content {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .footer-logo {
+            width: 120px;
+            height: auto;
+        }
+        
+        .footer-text {
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: rgba(255, 255, 255, 0.35);
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive media queries */
+        @media (min-width: 640px) {
+            .hero-content {
+                padding: 24px;
+            }
+            
+            .hero-title {
+                font-size: 26px;
+            }
+            
+            .hero-subtitle {
+                font-size: 15px;
+            }
+            
+            .hero-description {
+                font-size: 15px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .section-description {
+                font-size: 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+            
+            .stat-number {
+                font-size: 38px;
+            }
+            
+            .results-title {
+                font-size: 28px;
+            }
+            
+            .results-description {
+                font-size: 15px;
+            }
+            
+            .contact-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .hero-content {
+                padding: 32px;
+            }
+            
+            .nav-menu {
+                display: flex;
+                gap: 24px;
+            }
+            
+            .nav-menu a {
+                font-size: 12px;
+            }
+            
+            .logo {
+                width: 140px;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .section-description {
+                font-size: 16px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 48px;
+            }
+            
+            .feature-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .feature-title {
+                font-size: 18px;
+            }
+            
+            .feature-description {
+                font-size: 14px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 40px;
+            }
+            
+            .stat-number {
+                font-size: 42px;
+            }
+            
+            .stat-label {
+                font-size: 14px;
+            }
+            
+            .results-title {
+                font-size: 30px;
+            }
+            
+            .results-description {
+                font-size: 16px;
+            }
+            
+            .contact-title {
+                font-size: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .footer-text {
+                text-align: left;
+            }
+            
+            .social-links {
+                gap: 20px;
+            }
+            
+            .social-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-content {
+                padding: 48px;
+            }
+            
+            .logo {
+                width: 160px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .results-title {
+                font-size: 32px;
+            }
+            
+            .contact-title {
+                font-size: 32px;
+            }
+            
+            .stat-number {
+                font-size: 46px;
+            }
+            
+            .footer-logo {
+                width: 160px;
+            }
+            
+            .footer-text {
+                font-size: 12px;
+            }
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fsilentios1998back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <header class="header">
+                <img src="../assets/images/img_logo.svg" alt="Headphones Logo" class="logo" />
+                <nav class="nav-menu">
+                    <a href="#what-we-do">what we do</a>
+                    <a href="#results">our results</a>
+                    <a href="#contact">contact us</a>
+                </nav>
+            </header>
+            
+            <div class="hero-main">
+                <h1 class="hero-title">Lorem ipsum dolor set amet lorem ipsum</h1>
+                <p class="hero-subtitle">Lorem ipsum dolor set amet lorem ipsum dolor set</p>
+                <button class="cta-button">CALL TO ACTION</button>
+                <p class="hero-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What We Do Section -->
+    <section class="what-we-do-section" id="what-we-do">
+        <div class="content-container">
+            <h2 class="section-title">What we do…</h2>
+            <p class="section-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <img src="../assets/images/img_sound_frecuency.svg" alt="Sound Frequency" class="feature-icon" />
+                    <h3 class="feature-title">Lorem ipsum</h3>
+                    <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <img src="../assets/images/img_video.svg" alt="Video" class="feature-icon" />
+                    <h3 class="feature-title">Lorem ipsum</h3>
+                    <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <img src="../assets/images/img_music.svg" alt="Music" class="feature-icon" />
+                    <h3 class="feature-title">Lorem ipsum</h3>
+                    <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <img src="../assets/images/img_hearing.svg" alt="Hearing" class="feature-icon" />
+                    <h3 class="feature-title">Lorem ipsum</h3>
+                    <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results Section -->
+    <section class="results-section" id="results">
+        <div class="results-content">
+            <h2 class="results-title">Our results speak for themselves</h2>
+            <p class="results-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">+2%</div>
+                    <div class="stat-label">Lorem ipsum dolor</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">+2%</div>
+                    <div class="stat-label">Lorem ipsum dolor</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">+2%</div>
+                    <div class="stat-label">Lorem ipsum dolor</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">+2%</div>
+                    <div class="stat-label">Lorem ipsum dolor</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="contact-title">Contact us</h2>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-input" required />
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required />
+                </div>
+                
+                <div class="form-group">
+                    <textarea class="form-textarea" placeholder="Your message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">CALL TO ACTION</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="../assets/images/img_logo.svg" alt="Headphones Logo" class="footer-logo" />
+            <p class="footer-text">©headphones 2020</p>
+            <div class="social-links">
+                <img src="../assets/images/img_facebook.svg" alt="Facebook" class="social-icon" />
+                <img src="../assets/images/img_twitter.svg" alt="Twitter" class="social-icon" />
+                <img src="../assets/images/img_instagram.svg" alt="Instagram" class="social-icon" />
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

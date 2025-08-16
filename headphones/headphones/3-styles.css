@@ -1,0 +1,25 @@
+.contact-section { width: 100%; background: #fff; padding: 60px 16px; }
+.contact-container { width: 100%; max-width: 400px; margin: 0 auto; }
+.contact-title {
+  font-family: 'ADLaM Display', serif; font-size: 30px; font-weight: 400; text-align: center; color: #071629;
+  margin-bottom: 24px;
+}
+.contact-form { display: flex; flex-direction: column; gap: 24px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label { font-family: 'ADLaM Display', serif; font-size: 14px; color: #071629; }
+.form-input {
+  border: none; border-bottom: 1px solid rgba(7,22,41,0.17);
+  padding: 10px 0; font-size: 14px; background: transparent; color: #071629;
+}
+.form-input:focus { outline: none; border-bottom-color: #ff6565; }
+.form-textarea {
+  border: 1px solid rgba(7,22,41,0.17); padding: 10px 12px; font-size: 14px; background: transparent; color: #071629;
+  min-height: 80px; resize: vertical;
+}
+.form-textarea:focus { outline: none; border-color: #ff6565; }
+.submit-button {
+  background: #ff6565; color: #fff; border: 0; border-radius: 22px;
+  padding: 12px 30px; font-size: 14px; font-weight: 700; text-transform: uppercase;
+  cursor: pointer; align-self: center; transition: transform .2s ease, background .2s ease;
+}
+.submit-button:hover { background: #e55555; transform: translateY(-2px); }

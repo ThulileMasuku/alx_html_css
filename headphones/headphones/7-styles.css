@@ -1,0 +1,21 @@
+.animated-section { padding: 60px 16px; max-width: 1200px; margin: 0 auto; }
+.animated-title { font-family: 'ADLaM Display', serif; font-size: 30px; text-align: center; margin-bottom: 24px; }
+.animated-items { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.animated-item {
+  padding: 24px; border: 1px solid #e6e6e6; border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  opacity: 0; transform: translateY(16px);
+  animation: riseIn .7s ease forwards;
+}
+.animated-item:nth-child(2){ animation-delay: .15s; }
+.animated-item:nth-child(3){ animation-delay: .3s; }
+
+@keyframes riseIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animated-item:hover { transform: translateY(-3px); transition: transform .2s ease; }
+
+@media (min-width: 768px){
+  .animated-items { grid-template-columns: repeat(3, 1fr); }
+}

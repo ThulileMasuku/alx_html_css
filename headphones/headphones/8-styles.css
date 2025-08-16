@@ -1,0 +1,20 @@
+/* header + hamburger (also used by index0.html) */
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px; background: #071629; color: #fff;
+}
+.logo { width: 140px; height: auto; }
+.hamburger {
+  background: transparent; color: #fff; border: 0; font-size: 28px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+}
+.nav-menu { display: none; flex-direction: column; gap: 12px; }
+.nav-menu a { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 12px; }
+
+.nav-menu.open { display: flex; padding: 12px 0; }
+
+/* desktop */
+@media (min-width: 768px){
+  .hamburger { display: none; }
+  .nav-menu { display: flex; flex-direction: row; gap: 24px; }
+}
